@@ -44,3 +44,17 @@ select {
   color: #454646;
 }*/
 
+html, body {
+    height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -270px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .page-wrap:after {
+  height: 270px; 
+}
