@@ -8,9 +8,16 @@ div #query p, #serverNameDiv p{
   display: flex;
 }
 
+.whitet {
+  color: #adb6bc;
+}
+
 .title {
   color: white;
-  
+}
+
+#query {
+  margin-right: 10px;
 }
 
 #serverNameDiv{
