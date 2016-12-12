@@ -20,23 +20,23 @@ Version: 2.1.0 // UI Update
 </head>
 
 <body>
-
-	<!-- Dynatrace header -->
-	<div class="nav">
-		<a class="nav__brand" href="/">
-			<img class="nav__logo" src="https://help.dynatrace.com/assets/dynatrace-logo.svg" alt="dynatrace logo" />
-		</a>
-		<div class="nav__buttongroup" id="serverNameDiv">
-			<label for="serverName" class="label">Server name: </label>
-			<input type="text" class="inputfield" id="serverName" oninput="setServerName(this.value);" />
-		</div>
-		<nav class="nav__bar">
-			<ul class="nav__list nav__list--primary" style="width: 100%; padding-right: 8.5rem">
-				<li class="nav__item title center"><b>DMI REST Services</b></li>				
-			</ul>
-			<ul class="nav__list nav__list--secondary">
-				<li class="nav__item whitet">
-					<div id="query">Query: <span id="currQuery"><span></div>
+	<div class="page-wrap">
+		<!-- Dynatrace header -->
+		<div class="nav">
+			<a class="nav__brand" href="/">
+				<img class="nav__logo" src="https://help.dynatrace.com/assets/dynatrace-logo.svg" alt="dynatrace logo" />
+			</a>
+			<div class="nav__buttongroup" id="serverNameDiv">
+				<label for="serverName" class="label">Server name: </label>
+				<input type="text" class="inputfield" id="serverName" oninput="setServerName(this.value);" />
+			</div>
+			<nav class="nav__bar">
+				<ul class="nav__list nav__list--primary" style="width: 100%; padding-right: 8.5rem">
+					<li class="nav__item title center"><b>DMI REST Services</b></li>
+				</ul>
+				<ul class="nav__list nav__list--secondary">
+					<li class="nav__item whitet">
+						<div id="query">Query: <span id="currQuery"><span></div>
 				</li>
     	</ul>
 		</nav>
@@ -170,6 +170,7 @@ Version: 2.1.0 // UI Update
 		</div>
 	</div>
 
+	</div>
 		<footer class="footer">
 			<div class="footer__socials">
 			<h3>Join us on</h3>
