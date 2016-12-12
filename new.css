@@ -8,6 +8,11 @@ div #query p, #serverNameDiv p{
   display: flex;
 }
 
+.title {
+  color: white;
+  
+}
+
 #serverNameDiv{
     color:white;
     display: flex;
