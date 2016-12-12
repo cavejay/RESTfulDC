@@ -20,6 +20,11 @@ div #query p, #serverNameDiv p{
   margin-right: 10px;
 }
 
+.serverLabelDiv {
+  line-height: 32px;
+  padding-right: 10px;
+}
+
 #serverNameDiv{
     color:white;
     display: flex;
