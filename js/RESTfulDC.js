@@ -72,26 +72,9 @@ window.onload = function() {
     updateQueriedParameters("default");
 
     setHelpAnchors();
-    loadJSONOptions();
 
     loaded++;
   }
-}
-
-function loadJSONOptions(){
-  //document.getElementById("getJSONScript").onclick = function(){alert('hi');}
-  for(var i=0; i<5; i++){
-    dim.options[i+1] = new Option(i);
-  }
-  for(var i=1; i<6; i++){
-    met.options[i] = new Option(i);
-  }
-  
-  dim.addEventListener('change', function(){verifyCol("dim");},false);
-  met.addEventListener('change', function(){verifyCol("met");},false);
-
-  dim.style.backgroundColor = "lightblue";
-  met.style.backgroundColor = "lightgreen";
 }
 
 //  desc: Toggles the help div on and off.
@@ -589,6 +572,7 @@ function testSelectedValues(){
     alert("You must first select a dimension and metric");
   }
   else {
+    buildJSON();
     getSampleData();
   }
 }
@@ -1205,35 +1189,24 @@ function verifyCol(caller){
 // from a list of JSON objects to generate multiple requests and push the data to a 3rd
 // party BI tool. If you need to do so, please use the RESTfulDCParams files
 function buildJSON(){
-  var tag = document.getElementById("dim").value;
-  var met = document.getElementById("met").value;
-  var ddName = document.getElementById("metricName").value;
+  getEnteredParams();
+  buildPostParams();
 
-  if(tag!="Tag" && met!="Value"){
-
-    getEnteredParams();
-    buildPostParams();
-
-    var text = "{";
-    text += '"appId": "' + postParams['appId'] + '",';
-    text += '"viewId": "' + postParams['viewId'] + '",';
-    text += '"dataSourceId": "' + postParams['dataSourceId'] + '",';
-    text += '"dimensionIds": ' + postParams['dimensionIds'].split("'").join("\"") + ',';
-    text += '"metricIds": ' + postParams['metricIds'].split("'").join("\"") + ',';
-    text += '"dimFilters": ' + postParams['dimFilters'].split("'").join("\"") + ',';
-    text += '"metricFilters": ' + postParams['metricFilters'].split("'").join("\"") + ',';
-    text += '"sort": ' + postParams['sort'].split("'").join("\"") + ',';
-    text += '"top": ' + postParams['topFilter'] + ',';
-    text += '"resolution": "' + postParams['resolution'] + '",';
-    text += '"timePeriod": "' + postParams['timePeriod'] + '",';
-    text += '"numberOfPeriods": ' + postParams['numberOfPeriods'] + '}';
-    
-    text += '|||'+tag+'|||'+met+'|||'+ddName;
-
-    document.getElementById("JSONOutput").innerHTML = text;
-  } else {
-    userOutput = "<font color='red'>You must first select a DC RUM Tag and Value</font><br>"; output();
-  }
+  var text = "{";
+  text += '"appId": "' + postParams['appId'] + '",';
+  text += '"viewId": "' + postParams['viewId'] + '",';
+  text += '"dataSourceId": "' + postParams['dataSourceId'] + '",';
+  text += '"dimensionIds": ' + postParams['dimensionIds'].split("'").join("\"") + ',';
+  text += '"metricIds": ' + postParams['metricIds'].split("'").join("\"") + ',';
+  text += '"dimFilters": ' + postParams['dimFilters'].split("'").join("\"") + ',';
+  text += '"metricFilters": ' + postParams['metricFilters'].split("'").join("\"") + ',';
+  text += '"sort": ' + postParams['sort'].split("'").join("\"") + ',';
+  text += '"top": ' + postParams['topFilter'] + ',';
+  text += '"resolution": "' + postParams['resolution'] + '",';
+  text += '"timePeriod": "' + postParams['timePeriod'] + '",';
+  text += '"numberOfPeriods": ' + postParams['numberOfPeriods'] + '}';
+  
+  document.getElementById("JSONOutput").innerHTML = text;
 }
 
 //  desc: Copies text
