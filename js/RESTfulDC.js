@@ -94,15 +94,15 @@ function getServerNameAndPath(){
   var tmp = window.location.href, splits = [];
   tmp = tmp.split("//");
 
-  connection = tmp[0]+"//";
+  connection = tmp[0]+"//"; // https or http?
 
   splits = tmp[1].split("/");
 
   serverName = splits[0];
-  document.getElementById("serverName").value = serverName;
+  document.getElementById("serverName").value = serverName; // show the server name
 
   for(var i=1; i<splits.length; i++){
-    path += '/'+splits[i];
+    path += '/'+splits[i]; // grab the rest of the uri
   }
 }
 
@@ -291,7 +291,7 @@ function getPossibleParams(params,caller){
   params = typeof params !== 'undefined' ? params : "";
   var url = connection+serverName+"/rest/dmiquery/"+params;
 
-  document.getElementById("currQuery").innerHTML = url;
+  document.getElementById("currentQuery").innerHTML = url;
 
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", url, false );
@@ -302,14 +302,15 @@ function getPossibleParams(params,caller){
   catch(e){
     if(e.name == 'NetworkError'){
       alert("There was an error connecting to the CAS. Verify the server name.");
-      userOutput += "<font color='red'>Couldn't connect to CAS "+serverName+".</font><br>"; output();
+      userOutput += "<font color='red'>Couldn't connect to CAS "+serverName+".</font><br>"; 
+      output();
     }
   }
 
   response = xmlHttp.responseText;
 
   // Metric and Application callers need special parsing
-  if(caller!="metric" && caller!="datasource"){
+  if(response != '' && caller!="metric" && caller!="datasource"){
     var results = JSON.parse(response).results+'';
     results = results.split(",");
   } else {

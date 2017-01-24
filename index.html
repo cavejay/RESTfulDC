@@ -21,11 +21,11 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
         <div class="row white-text" style="height: 40px">
             <div style="padding-left: 10px; line-height: 35px; height: 100%; display: flex" class="grey darken-3 col s12 l6"> Server: 
                 <div class="input-field inline" style="margin-top: 0px; padding-top: 0px; width: 100%">
-                    <input style="margin-bottom: 4px; padding: 2px; height: 30px;" id="servername" type="text">
+                    <input style="margin-bottom: 4px; padding: 2px; height: 30px;" id="serverName" type="text">
                 </div>
             </div>
             <div style="padding-left: 10px; line-height: 35px; height: 100%" class="grey darken-2 col s12 l6"> Query: 
-                    <span id="queryname" />
+                    <span id="currentQuery" />
             </div>
         </div>
     </div>
@@ -47,11 +47,11 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
 <main class="lighten-2">
     <div style="" class="">
         <div class="row">
-            <div class="col s12 m4">
-                <div class="section">
+            <div class="col s12 m6 l4">
+                <div class="section  ">
                     <h4>Parameters</h4>
                     <ul>
-                        <li>
+                        <li class="">
                             <h5>Data Sources</h5>
                             <select id="datasource" onchange="updateQueriedParameters('datasource');">
                                 <option value="" disabled selected>Choose your option</option>
@@ -70,20 +70,20 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                             </select>
                         </li>
                         <li>
-                            <h5>Dimensions</h5>
-                            <button id="addDimButton" onclick="addDimensionQuery();" class="addButton">+</button>
-                            <button id="remDimButton" onclick="removeDimensionQuery();" class="removeButton">-</button>
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                            </select>
+                            <h5>
+                                Dimensions
+                                <button id="addDimButton" onclick="addDimensionQuery();" class="addButton">+</button>
+                                <button id="remDimButton" onclick="removeDimensionQuery();" class="removeButton">-</button>
+                            </h5>
+                            <div id="dimensionSelectors"></div>
                         </li>
                         <li>
-                            <h5>Metrics</h5>
-                            <button id="addMetricButton" onclick="addMetricQuery();" class="addButton">+</button>
-                            <button id="remMetricButton" onclick="removeMetricQuery();" class="removeButton">-</button>
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                            </select>
+                            <h5>
+                                Metrics
+                                <button id="addMetricButton" onclick="addMetricQuery();" class="addButton">+</button>
+                                <button id="remMetricButton" onclick="removeMetricQuery();" class="removeButton">-</button>
+                            </h5>
+                            <div id="metricSelectors"></div>
                         </li>
                         <li>
                             <h5>Time Period</h5>
@@ -94,20 +94,26 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                     </ul>  
                 </div>
             </div>
-            <div class="col s12 m4">
+            <div class="col s12 m6 l4">
                 <div class="row">
-                    <div class="section">
+                    <div class="section  ">
                         <h4>Filters and Options</h4>
                         <ul>
                             <li>
-                                <h5>Dimension Filters</h5>
-                                <button id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
-                                <button id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
+                                <h5>
+                                    Dimension Filters
+                                    <button id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
+                                    <button id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
+                                </h5>
+                                <div id="dimFiltersDiv"/>
                             </li>
                             <li>
-                                <h5>Metric Filters</h5>
-                                <button id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
-                                <button id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
+                                <h5>
+                                    Metric Filters
+                                    <button id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
+                                    <button id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
+                                </h5>
+                                <div id="metricFiltersDiv"/>
                             </li>
                             <li>
                                 <h5>Sort</h5>
@@ -130,18 +136,19 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 <div class="row">
                     <div class="section">
                         <h4>Console</h4>
+                        <div id="userOutput"> </div>
                     </div>
                 </div>
             </div>
-            <div class="col s12 m4">
+            <div class="col s12 m6 l4">
                 <div class="row">
-                    <div class="section">
+                    <div class="section  ">
                         <h4>Sample Data</h4>
                         this is text about what will go there
                     </div>
                 </div>
                 <div class="row">
-                    <div class="section">
+                    <div class="section  ">
                         <h4>JSON Script</h4>
                     </div>
                 </div>
@@ -162,7 +169,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/RESTfulDC.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
 </body>
 </html>
