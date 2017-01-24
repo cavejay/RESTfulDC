@@ -71,7 +71,7 @@ window.onload = function () {
     setDefaultSelectors(1);
     updateQueriedParameters("default");
 
-    setHelpAnchors();
+    // setHelpAnchors(); //todo figure out what this does and fix it
 
     loaded++;
   }
@@ -989,26 +989,26 @@ function giveOptions(target, options, start) {
   }
 }
 
-//  desc: Creates the Help anchors in the help page
-function setHelpAnchors() {
-  var div = document.getElementById("helpDiv").childNodes[5];
-  var links = [];
-  for (var i = 0; i < div.childNodes.length; i++) {
-    if (div.childNodes[i].nodeName == "H3") {
-      div.childNodes[i].childNodes[0].name = div.childNodes[i].childNodes[0].outerText;
-      links[links.length] = div.childNodes[i].childNodes[0].name;
-    }
-  }
+// //  desc: Creates the Help anchors in the help page
+// function setHelpAnchors() {
+//   var div = document.getElementById("helpDiv").childNodes[5];
+//   var links = [];
+//   for (var i = 0; i < div.childNodes.length; i++) {
+//     if (div.childNodes[i].nodeName == "H3") {
+//       div.childNodes[i].childNodes[0].name = div.childNodes[i].childNodes[0].outerText;
+//       links[links.length] = div.childNodes[i].childNodes[0].name;
+//     }
+//   }
 
-  var tmp = "<ol>";
+//   var tmp = "<ol>";
 
-  for (var i = 0; i < links.length; i++) {
-    tmp += "<li><a href='#" + links[i] + "'>" + links[i] + "</a></li>";
-  }
-  tmp += "</ol>";
+//   for (var i = 0; i < links.length; i++) {
+//     tmp += "<li><a href='#" + links[i] + "'>" + links[i] + "</a></li>";
+//   }
+//   tmp += "</ol>";
 
-  document.getElementById("tableOfContents").innerHTML += tmp;
-}
+//   document.getElementById("tableOfContents").innerHTML += tmp;
+// }
 
 //  desc: Sets the default dictionary terms
 function addDictionaryDefinitions() {
