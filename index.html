@@ -50,6 +50,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
             <div class="col s12 m6 l4">
                 <div class="section  ">
                     <h4>Parameters</h4>
+                    <a class="waves-effect waves-light btn light-blue" id="sampleDataButton" onClick="testSelectedValues()">Get Data</a>
                     <ul>
                         <li class="">
                             <h5>Data Sources</h5>
@@ -105,7 +106,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                                     <button id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
                                     <button id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
                                 </h5>
-                                <div id="dimFiltersDiv"/>
+                                <div class="row" id="dimFiltersDiv"/>
                             </li>
                             <li>
                                 <h5>
@@ -113,18 +114,24 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                                     <button id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
                                     <button id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
                                 </h5>
-                                <div id="metricFiltersDiv"/>
+                                <div class="row" id="metricFiltersDiv"/>
                             </li>
                             <li>
                                 <h5>Sort</h5>
-                                <select id="sortParam" class="rightRow" style="width: 60%;">
-                                    <option value="">Select a parameter to sort by</option>
-                                </select>
-                                <select id="sortDir" class="leftRow" style="width: 30%;">
-                                    <option value="">Select a sort type</option>
-                                    <option value="ASC">Ascending</option>
-                                    <option value="DESC">Descending</option>
-                                </select>
+                                <div class="row"> 
+                                    <div class="col s8">
+                                        <select id="sortParam">
+                                            <option value="">Select a parameter to sort by</option>
+                                        </select>
+                                    </div>
+                                    <div class="col s4"> 
+                                        <select id="sortDir">
+                                            <option value="">Select a sort type</option>
+                                            <option value="ASC">Ascending</option>
+                                            <option value="DESC">Descending</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <h5>Number of Periods</h5>
@@ -136,6 +143,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 <div class="row">
                     <div class="section">
                         <h4>Console</h4>
+                        <a class="waves-effect waves-light btn light-blue" id='copyURLButton' onclick="copyURL();">Copy URL</a>
                         <div id="userOutput"> </div>
                     </div>
                 </div>
@@ -144,12 +152,14 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 <div class="row">
                     <div class="section  ">
                         <h4>Sample Data</h4>
-                        this is text about what will go there
+                        <a class="waves-effect waves-light btn light-blue" onclick="enlargeSampleData();">Enlarge</a>
+                        <div>this is text about what will go there</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="section  ">
                         <h4>JSON Script</h4>
+                        <a class="waves-effect waves-light btn light-blue" id='copyJSONButton' onclick="clipboard('JSONOutput',0);">Copy JSON</a>
                     </div>
                 </div>
             </div>
@@ -169,7 +179,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="js/RESTfulDC.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/RESTfulDC.js"></script>
 </body>
 </html>

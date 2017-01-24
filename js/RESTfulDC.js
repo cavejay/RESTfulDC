@@ -72,7 +72,8 @@ window.onload = function () {
     updateQueriedParameters("default");
 
     // setHelpAnchors(); //todo figure out what this does and fix it
-
+    initMaterial();
+    
     loaded++;
   }
 }
@@ -169,9 +170,9 @@ function addDimensionFilterLine() {
   var selector, textArea;
 
   if (dimFiltersCount == 0) {
-    selector = "<select id='selectDimFilter'><option value='DEF'>Select a Dimension</option></select>";
+    selector = "<div class='col s7'><select id='selectDimFilter'><option value='DEF'>Select a Dimension</option></select></div>";
     document.getElementById("dimFiltersDiv").innerHTML += selector;
-    textArea = "<textarea id='textAreaDimFilter'></textarea>";
+    textArea = "<div class='col s5'><textarea id='textAreaDimFilter'></textarea></div>";
     document.getElementById("dimFiltersDiv").innerHTML += textArea;
   }
   else {
@@ -312,7 +313,7 @@ function getPossibleParams(params, caller) {
   // Metric and Application callers need special parsing
   if (response != '' && caller != "metric" && caller != "datasource") {
     var results = JSON.parse(response).results + '';
-    results = results.split(",");
+    results = results.split(","); // fix this, an empty string does no mean we connected!
   } else {
     results = sanitizeResults(response, caller);
   }
