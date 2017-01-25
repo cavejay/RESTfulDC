@@ -66,19 +66,19 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                             </select>
                         </li>
                         <li>
-                            <h5>
-                                Dimensions
-                                <button id="addDimButton" onclick="addDimensionQuery();" class="addButton">+</button>
-                                <button id="remDimButton" onclick="removeDimensionQuery();" class="removeButton">-</button>
-                            </h5>
+                            <div class="data-with-buttons">
+                                <h5>Dimensions</h5>
+                                <button class="btn light-blue" id="remDimButton" onclick="removeDimensionQuery();" class="removeButton">-</button>
+                                <button class="btn light-blue" id="addDimButton" onclick="addDimensionQuery();" class="addButton">+</button>
+                            </div>
                             <div id="dimensionSelectors"></div>
                         </li>
                         <li>
-                            <h5>
-                                Metrics
-                                <button id="addMetricButton" onclick="addMetricQuery();" class="addButton">+</button>
-                                <button id="remMetricButton" onclick="removeMetricQuery();" class="removeButton">-</button>
-                            </h5>
+                            <div class="data-with-buttons">
+                                <h5>Metrics</h5>
+                                <button class="btn light-blue" id="remMetricButton" onclick="removeMetricQuery();" class="removeButton">-</button>
+                                <button class="btn light-blue" id="addMetricButton" onclick="addMetricQuery();" class="addButton">+</button>
+                            </div>
                             <div id="metricSelectors"></div>
                         </li>
                         <li>
@@ -96,19 +96,19 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                         <h4>Filters and Options</h4>
                         <ul>
                             <li>
-                                <h5>
-                                    Dimension Filters
-                                    <button id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
-                                    <button id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
-                                </h5>
+                                <div class="data-with-buttons">
+                                    <h5>Dimension Filters</h5>
+                                    <button class="btn light-blue" id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
+                                    <button class="btn light-blue" id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
+                                </div>
                                 <div class="row" id="dimFiltersDiv"/>
                             </li>
                             <li>
-                                <h5>
-                                    Metric Filters
-                                    <button id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
-                                    <button id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
-                                </h5>
+                                <div class="data-with-buttons">
+                                    <h5>Metric Filters</h5>
+                                    <button class="btn light-blue" id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
+                                    <button class="btn light-blue" id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
+                                </div>
                                 <div class="row" id="metricFiltersDiv"/>
                             </li>
                             <li>

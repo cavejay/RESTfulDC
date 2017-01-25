@@ -320,6 +320,8 @@ function getPossibleParams(params, caller) {
       userOutput += "<font color='red'>Couldn't connect to CAS " + serverName + ".</font><br>";
       output();
     }
+    console.log(e);
+    return;
   }
 
   response = xmlHttp.responseText;
@@ -327,7 +329,7 @@ function getPossibleParams(params, caller) {
   // Metric and Application callers need special parsing
   if (response != '' && caller != "metric" && caller != "datasource") {
     var results = JSON.parse(response).results + '';
-    results = results.split(","); // fix this, an empty string does no mean we connected!
+    results = results.split(",");
   } else {
     results = sanitizeResults(response, caller);
   }
@@ -827,6 +829,11 @@ function updateQuerySelectors(index, results) {
   cnt = object.options.length;
 
   object.disabled = false;
+
+  if (results == null) {
+    userOutput = "No results to process"; output();
+    return;
+  }
 
   for (var i = 1; cnt < results.length ? i < results.length : i < cnt; i++) {
     object.options[i] = null;

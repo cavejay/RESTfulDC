@@ -44,3 +44,20 @@ div.sectionTitlewithButton > a
 {
   margin-top: 0px;
 }
+
+div.data-with-buttons 
+{
+  height: 50px;
+}
+
+div.data-with-buttons > h5
+{
+  float: left;
+}
+
+div.data-with-buttons > button 
+{
+  float: right;
+  margin-top: 0.82rem;
+  margin-left: 5px;
+}
