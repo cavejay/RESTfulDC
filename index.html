@@ -40,6 +40,20 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
         main {
             flex: 1 0 auto;
         }
+
+        div.sectionTitlewithButton {
+            height: 64px;
+        }
+
+        div.sectionTitlewithButton > h4 {
+            float: left;
+            margin-bottom: 0px;
+        }
+
+        div.sectionTitlewithButton > a {
+            float: right;
+            margin: 1.14rem 15px 0 0 ;
+        }
     </style>
 </head>
 
@@ -48,9 +62,11 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
     <div style="" class="">
         <div class="row">
             <div class="col s12 m6 l4">
-                <div class="section  ">
-                    <h4>Parameters</h4>
-                    <a class="waves-effect waves-light btn light-blue" id="sampleDataButton" onClick="testSelectedValues()">Get Data</a>
+                <div class="section">
+                    <div class="sectionTitlewithButton">
+                        <h4>Parameters</h4>
+                        <a class="waves-effect waves-light btn light-blue" id="sampleDataButton" onClick="testSelectedValues()">Get Data</a>
+                    </div>
                     <ul>
                         <li class="">
                             <h5>Data Sources</h5>
@@ -142,24 +158,30 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 </div>
                 <div class="row">
                     <div class="section">
-                        <h4>Console</h4>
-                        <a class="waves-effect waves-light btn light-blue" id='copyURLButton' onclick="copyURL();">Copy URL</a>
-                        <div id="userOutput"> </div>
+                        <div class="sectionTitlewithButton">
+                            <h4>Console</h4>
+                            <a class="waves-effect waves-light btn light-blue" id='copyURLButton' onclick="copyURL();">Copy URL</a>
+                        </div>
+                        <div style="padding-top: 10px" id="userOutput"> </div>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6 l4">
                 <div class="row">
-                    <div class="section  ">
-                        <h4>Sample Data</h4>
-                        <a class="waves-effect waves-light btn light-blue" onclick="enlargeSampleData();">Enlarge</a>
+                    <div class="section">
+                        <div class="sectionTitlewithButton">
+                            <h4>Sample Data</h4>
+                            <a class="waves-effect waves-light btn light-blue" onclick="enlargeSampleData();">Enlarge</a>
+                        </div>
                         <div>this is text about what will go there</div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="section  ">
-                        <h4>JSON Script</h4>
-                        <a class="waves-effect waves-light btn light-blue" id='copyJSONButton' onclick="clipboard('JSONOutput',0);">Copy JSON</a>
+                    <div class="section">
+                        <div class="sectionTitlewithButton">
+                            <h4>JSON Script</h4>
+                            <a class="waves-effect waves-light btn light-blue" id='copyJSONButton' onclick="clipboard('JSONOutput',0);">Copy JSON</a>
+                        </div>
                     </div>
                 </div>
             </div>

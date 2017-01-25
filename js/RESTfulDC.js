@@ -72,7 +72,8 @@ window.onload = function () {
     updateQueriedParameters("default");
 
     // setHelpAnchors(); //todo figure out what this does and fix it
-    initMaterial();
+    
+    window.dispatchEvent(UIupdate);
     
     loaded++;
   }
@@ -122,17 +123,19 @@ function addDimensionQuery() {
     selector.id += dimensionCount + "";
     document.getElementById("dimensionSelectors").appendChild(selector);
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Removes a Dimension line if there are more than one
 function removeDimensionQuery() {
   if (dimensionCount > 0) {
-    document.getElementById("dimension" + dimensionCount).remove();
+    $("#dimension" + dimensionCount).parent().remove()
     dimensionCount--;
   } else {
     alert("nothing to remove!");
   }
   updateFilters();
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Adds a Metric select option to the DC RUM Queried Parameters
@@ -150,17 +153,19 @@ function addMetricQuery() {
     selector.id += metricCount + "";
     document.getElementById("metricSelectors").appendChild(selector);
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Removes a Metric line if there are more than one
 function removeMetricQuery() {
   if (metricCount > 0) {
-    document.getElementById("metric" + metricCount).remove();
+    $("#metric" + metricCount).parent().remove();
     metricCount--;
   } else {
     alert("nothing to remove!");
   }
   updateFilters();
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Adds a dimension filter select option
@@ -178,24 +183,28 @@ function addDimensionFilterLine() {
   else {
     selector = document.getElementById("selectDimFilter").cloneNode(true);
     selector.id += dimFiltersCount + "";
-    document.getElementById("dimFiltersDiv").appendChild(selector);
+    var t = document.createElement('div'); t.className = "col s7"; t.appendChild(selector);
+    document.getElementById("dimFiltersDiv").appendChild(t);
 
     textArea = document.getElementById("textAreaDimFilter").cloneNode(true);
     textArea.id += dimFiltersCount + "";
-    document.getElementById("dimFiltersDiv").appendChild(textArea);
+    var t = document.createElement('div'); t.className = "col s5"; t.appendChild(textArea);
+    document.getElementById("dimFiltersDiv").appendChild(t);
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Removes a dimension filter line if there are more than one
 function removeDimensionFilterLine() {
   if (dimFiltersCount > 0) {
-    document.getElementById("selectDimFilter" + dimFiltersCount).remove();
-    document.getElementById("textAreaDimFilter" + dimFiltersCount).remove();
+    $("#selectDimFilter" + dimFiltersCount).parent().parent().remove();
+    $("#textAreaDimFilter" + dimFiltersCount).parent().remove();
     dimFiltersCount--;
   } else {
     document.getElementById("selectDimFilter").selectedIndex = 0;
     document.getElementById("textAreaDimFilter").value = "";
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Adds a Metric filter select option
@@ -206,47 +215,52 @@ function addMetricFilterLine() {
 
   if (metricFiltersCount == 0) {
     // Builds the metric selector
-    selector = "<select id='selectMetricFilter' style='float: left;'><option value='DEF'>Select a Metric</option></select>";
+    selector = "<div class='col s6'><select id='selectMetricFilter' style='float: left;'><option value='DEF'>Select a Metric</option></select></div>";
     document.getElementById("metricFiltersDiv").innerHTML += selector;
 
     // Builds the operator selector
-    selector = "<select id='selectMetricFilterOperator' style='width: 8%; float: left;'><option value='='>=</option></select>";
+    selector = "<div class='col s2'><select id='selectMetricFilterOperator' style='width: 8%; float: left;'><option value='='>=</option></select></div>";
     document.getElementById("metricFiltersDiv").innerHTML += selector;
 
     options = ["!=", "<", "<=", ">", ">="];
     giveOptions("selectMetricFilterOperator", options, 1);
 
     // Builds the filter value text area
-    textArea = "<textarea id='textAreaMetricFilter' style='float: left;'></textarea>";
+    textArea = "<div class='col s4'><textarea id='textAreaMetricFilter' style='float: left;'></textarea></div>";
     document.getElementById("metricFiltersDiv").innerHTML += textArea;
   }
   else {
     selector = document.getElementById("selectMetricFilter").cloneNode(true);
     selector.id += metricFiltersCount + "";
-    document.getElementById("metricFiltersDiv").appendChild(selector);
+    var t = document.createElement('div'); t.className = "col s6"; t.appendChild(selector);
+    document.getElementById("metricFiltersDiv").appendChild(t);
 
     selector = document.getElementById("selectMetricFilterOperator").cloneNode(true);
     selector.id += metricFiltersCount + "";
-    document.getElementById("metricFiltersDiv").appendChild(selector);
+    var t = document.createElement('div'); t.className = "col s2"; t.appendChild(selector);
+    document.getElementById("metricFiltersDiv").appendChild(t);
 
     textArea = document.getElementById("textAreaMetricFilter").cloneNode(true);
     textArea.id += metricFiltersCount + "";
-    document.getElementById("metricFiltersDiv").appendChild(textArea);
+    var t = document.createElement('div'); t.className = "col s4"; t.appendChild(textArea);
+    document.getElementById("metricFiltersDiv").appendChild(t);
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Removes a Metric filter line if there are more than one
 function removeMetricFilterLine() {
   if (metricFiltersCount > 0) {
-    document.getElementById("selectMetricFilter" + metricFiltersCount).remove();
-    document.getElementById("selectMetricFilterOperator" + metricFiltersCount).remove();
-    document.getElementById("textAreaMetricFilter" + metricFiltersCount).remove();
+    $("#selectMetricFilter" + metricFiltersCount).parent().parent().remove();
+    $("#selectMetricFilterOperator" + metricFiltersCount).parent().parent().remove();
+    $("#textAreaMetricFilter" + metricFiltersCount).parent().remove();
     metricFiltersCount--;
   } else {
     document.getElementById("selectMetricFilter").selectedIndex = 0;
     document.getElementById("selectMetricFilterOperator").selectedIndex = 0;
     document.getElementById("textAreaMetricFilter").value = "";
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Original Query DC RUM method
