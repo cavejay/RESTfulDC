@@ -1,85 +1,46 @@
 
-div #query p, #serverNameDiv p{
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-}
-
-.tile__header {
-  display: flex;
-}
-
-.whitet {
-  color: #adb6bc;
-}
-
-.title {
-  color: white;
-}
-
-#query {
-  margin-right: 10px;
-}
-
-.serverLabelDiv {
-  line-height: 32px;
-  padding-right: 10px;
-}
-
-#serverNameDiv{
-    color:white;
+body 
+{
     display: flex;
-    white-space: nowrap;
-    padding-top: 5px;
-    padding-right: 10px;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.center {
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+main 
+{
+    flex: 1 0 auto;
 }
 
-html, body {
-    height: 100%;
+div.sectionTitlewithButton 
+{
+    height: 64px;
 }
 
-.page-wrap {
-  min-height: 100%;
-  margin-bottom: -270px;
+div.sectionTitlewithButton > h4 
+{
+    float: left;
+    margin-bottom: 0px;
 }
 
-.page-wrap:after {
-  content: "";
-  display: block;
+div.sectionTitlewithButton > a 
+{
+    float: right;
+    margin: 1.14rem 15px 0 0 ;
 }
 
-.footer, .page-wrap:after {
-  height: 270px;
+/* label focus color */
+.input-field input[type=number]:focus, .input-field input[type=text]:focus
+{
+    border-bottom: 1px solid deepskyblue;
+    box-shadow: 0 1px 0 0 deepskyblue;
 }
 
+.dropdown-content li>span
+{
+  color: #23a6d2;
+}
 
-/*
-select {
-  font-family: "BerninaSans", "Open Sans", sans-serif;
-  
-  position: relative;
-  display: inline-block;  
-  height: 32px;
-  
-  padding-top: 0;
-  padding-bottom: 10;
-  padding-left: 11px;
-  
-  font-size: 14px;
-  line-height: 32px;
-  line-height: -moz-block-height;
-  vertical-align: middle;
-  white-space: nowrap;
-  text-align: left;
-  overflow: hidden;
-  width: 100%;
-  max-width: 600px;
-  color: #454646;
-}*/
-
+.filter-inputs
+{
+  margin-top: 0px;
+}

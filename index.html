@@ -8,6 +8,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/RestfulHelper.css" media="screen,projection" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,29 +32,7 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
     </div>
 
     <style>
-        body {
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
 
-        main {
-            flex: 1 0 auto;
-        }
-
-        div.sectionTitlewithButton {
-            height: 64px;
-        }
-
-        div.sectionTitlewithButton > h4 {
-            float: left;
-            margin-bottom: 0px;
-        }
-
-        div.sectionTitlewithButton > a {
-            float: right;
-            margin: 1.14rem 15px 0 0 ;
-        }
     </style>
 </head>
 
@@ -151,7 +130,9 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                             </li>
                             <li>
                                 <h5>Number of Periods</h5>
-                                <textarea id="numberOfPeriods">1</textarea>
+                                <div class="input-field">
+                                    <input value="1" placeholder="Number of Periods" id="numberOfPeriods" type="number">
+                                </div>
                             </li>
                         </ul>  
                     </div>

@@ -177,7 +177,7 @@ function addDimensionFilterLine() {
   if (dimFiltersCount == 0) {
     selector = "<div class='col s7'><select id='selectDimFilter'><option value='DEF'>Select a Dimension</option></select></div>";
     document.getElementById("dimFiltersDiv").innerHTML += selector;
-    textArea = "<div class='col s5'><textarea id='textAreaDimFilter'></textarea></div>";
+    textArea = "<div class='input-field col s5 filter-inputs'><input type='text' id='textAreaDimFilter'></input></div>";
     document.getElementById("dimFiltersDiv").innerHTML += textArea;
   }
   else {
@@ -188,7 +188,7 @@ function addDimensionFilterLine() {
 
     textArea = document.getElementById("textAreaDimFilter").cloneNode(true);
     textArea.id += dimFiltersCount + "";
-    var t = document.createElement('div'); t.className = "col s5"; t.appendChild(textArea);
+    var t = document.createElement('div'); t.className = "input-field filter-inputs col s5"; t.appendChild(textArea);
     document.getElementById("dimFiltersDiv").appendChild(t);
   }
   window.dispatchEvent(UIupdate);
@@ -215,18 +215,18 @@ function addMetricFilterLine() {
 
   if (metricFiltersCount == 0) {
     // Builds the metric selector
-    selector = "<div class='col s6'><select id='selectMetricFilter' style='float: left;'><option value='DEF'>Select a Metric</option></select></div>";
+    selector = "<div class='col s6'><select id='selectMetricFilter'><option value='DEF'>Select a Metric</option></select></div>";
     document.getElementById("metricFiltersDiv").innerHTML += selector;
 
     // Builds the operator selector
-    selector = "<div class='col s2'><select id='selectMetricFilterOperator' style='width: 8%; float: left;'><option value='='>=</option></select></div>";
+    selector = "<div class='col s2'><select id='selectMetricFilterOperator'><option value='='>=</option></select></div>";
     document.getElementById("metricFiltersDiv").innerHTML += selector;
 
     options = ["!=", "<", "<=", ">", ">="];
     giveOptions("selectMetricFilterOperator", options, 1);
 
     // Builds the filter value text area
-    textArea = "<div class='col s4'><textarea id='textAreaMetricFilter' style='float: left;'></textarea></div>";
+    textArea = "<div class='input-field filter-inputs col s4'><input type='text' id='textAreaMetricFilter'></input></div>";
     document.getElementById("metricFiltersDiv").innerHTML += textArea;
   }
   else {
@@ -242,7 +242,7 @@ function addMetricFilterLine() {
 
     textArea = document.getElementById("textAreaMetricFilter").cloneNode(true);
     textArea.id += metricFiltersCount + "";
-    var t = document.createElement('div'); t.className = "col s4"; t.appendChild(textArea);
+    var t = document.createElement('div'); t.className = "input-field filter-inputs col s4"; t.appendChild(textArea);
     document.getElementById("metricFiltersDiv").appendChild(t);
   }
   window.dispatchEvent(UIupdate);
