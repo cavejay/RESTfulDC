@@ -1,5 +1,3 @@
-# <b style='color: red;'>STILL IN DEVELOPMENT</b>
-
 # RESTfulDC
 A RESTful helper for DC RUM.
 
