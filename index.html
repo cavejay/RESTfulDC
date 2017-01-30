@@ -186,39 +186,50 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 <center><img src="/img/ajax-loader.gif"><br><br><button onclick="cancelRequest()">Cancel the request</button></center>
             </div>
         </div>-->
-        <div id="helpModal" class="modal bottom-sheet">
+        <div id="helpModal" class="modal modal-fixed-footer">
             <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
+                <h4>DC RUM RESTful Help</h4>
+                <p> Below is a FAQ written by Brett Barret for the original version of this tool, if you have any further questions then reach out to my Github account (cavejay) and I'll try to answer </p>
+                <ul class="collapsible" data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header">Why do I always have to log back in after a refresh?</div>
+                        <div class="collapsible-body">
+                            <p>Something about pulling possible parameters from the CAS using the /rest/dmiquery URI forces the user to log back into the CAS upon leaving the RESTful page.<p>    
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Empty return set</div>
+                        <div class="collapsible-body">
+                            <p>There are some Application / Dimensions / Metrics combinations that, although appear from the RESTful helper, may not actually provide any data. 
+                            This could be because there's no data in the CAS for that combination.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Can not connect to CAS</div>
+                        <div class="collapsible-body">
+                            <p>If you have a problem connecting to the CAS, verify the CAS server name is correct in the top-right server name box. <br><br> 
+                            *Note* Due to XSS issues, you should only use this tool on the CAS you are querying data from. 
+                            The server name field is only to verify the server name was parsed correctly from the URI.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">No dimension or metric filters</div>
+                        <div class="collapsible-body">
+                            <p>Make sure to select both a Dimension and a Metric before selecting a filter or sort option.<br></p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">RESTful Helper does not appear correctly</div>
+                        <div class="collapsible-body">
+                            <p>The RESTful Helper is optimized for Chrome on a 1080p display. If your resolution is lower, zoom out and the page should fit better.<br></p>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class=" modal-action modal-close waves-effect waves-blue btn-flat">Close</a>
             </div>
         </div>
-        <!--<div id="helpDiv">
-            <h1>DC RUM RESTful Help</h1>
-            <div id="helpContent">
-                <div id="tableOfContents">
-                    <h2>Table of contents:</h2>
-                    </div>
-                    <h3><a>Why do I always have to log back in after a refresh?</a></h3>
-                    Something about pulling possible parameters from the CAS using the /rest/dmiquery URI forces the user to log back into the
-                    CAS upon leaving the RESTful page.
-                    <h3><a>Empty return set</a></h3>
-                    There are some Application / Dimensions / Metrics combinations that, although appear from the RESTful helper, may not actually
-                    provide any data. This could be because there's no data in the CAS for that combination.
-                    <h3><a>Can not connect to CAS</a></h3>
-                    If you have a problem connecting to the CAS, verify the CAS server name is correct in the top-right server name box.
-                    <br><br> *Note* Due to XSS issues, you should only use this tool on the CAS you are querying data from. The server
-                    name field is only to verify the server name was parsed correctly from the URI.
-                    <h3><a>No dimension or metric filters</a></h3>
-                    Make sure to select both a Dimension and a Metric before selecting a filter or sort option.<br>
-                    <h3><a>RESTful Helper does not appear correctly</a></h3>
-                    The RESTful Helper is optimized for Chrome on a 1080p display. If your resolution is lower, zoom out and the page should
-                    fit better.<br>
-                </div>
-            </div>
-        </div>-->
 </main>
 
 <footer class="page-footer grey darken-2"> 
