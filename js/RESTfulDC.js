@@ -297,6 +297,8 @@ function updateQueriedParameters(caller) {
     default:
       alert("no case found");
   }
+
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Queried Parameters - Queries DC RUM for possible parameters
@@ -338,7 +340,7 @@ function getPossibleParams(params, caller) {
 
 //  desc: Toggles the timer and busy screen
 //  option: Whether to start or stop
-function busy(option) {
+function busy(option) { // todo materialize this
   if (option == "start") {
     start = Date.now();
     document.getElementById("busy").style.display = "block";
@@ -364,7 +366,11 @@ function sanitizeResults(results, caller) {
     splits = objects[i].split("\",\"");
     array[cnt] = splits[0].substring(1);
 
-    caller == "datasource" ? array[cnt + 1] = splits[1].substring(0, splits[1].length - 1) : array[cnt + 1] = splits[1];
+    if (caller == "datasource") {
+      array[cnt + 1] = splits[1].substring(0, splits[1].length - 1)
+    } else {
+      array[cnt + 1] = splits[1];
+    }
 
     cnt = cnt + 2;
   }
@@ -398,6 +404,7 @@ function updateFilters() {
 
     updateSortParam();
   }
+  window.dispatchEvent(UIupdate);
 }
 
 //  desc: Clears the old dimension filters and builds the new list
@@ -685,10 +692,10 @@ function buildMetricFilter() {
 
   tmp = "[";
 
-  for (var i = 3; i < document.getElementById("metricFiltersDiv").childNodes.length; i = i + 3) {
-    select = document.getElementById("metricFiltersDiv").childNodes[i].value;
-    operator = document.getElementById("metricFiltersDiv").childNodes[i + 1].value;
-    value = document.getElementById("metricFiltersDiv").childNodes[i + 2].value;
+  for (var i = 1; i < document.getElementById("metricFiltersDiv").childNodes.length; i = i + 3) {
+    select = document.getElementById("metricFiltersDiv").childNodes[i].childNodes[0].childNodes[3].value;
+    operator = document.getElementById("metricFiltersDiv").childNodes[i + 1].childNodes[0].childNodes[3].value;
+    value = document.getElementById("metricFiltersDiv").childNodes[i + 2].childNodes[0].value;
 
     if (select != "DEF") {
       if (value != "") {
@@ -698,7 +705,7 @@ function buildMetricFilter() {
         tmp += value + ",1],"; ////the value
       }
       else {
-        alert("The " + select + " filter was not used because there was no value");
+        alert("The " + select + " filter was not used because there was no value"); // todo materialize this
       }
     }
   }
@@ -773,6 +780,7 @@ function disableFollowingSelectors(index) {
         document.getElementById(viewOrder[i]).disabled = true;
     }
   }
+  window.dispatchEvent(UIupdate);
 }
 
 // desc: Updates the DC RUM Queried Parameters select options to represent new options
@@ -877,7 +885,7 @@ function getSampleData() {
 
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
-      busy("stop");
+      // busy("stop");
 
       var jsonResponse = JSON.parse(http.responseText);
 
@@ -892,7 +900,7 @@ function getSampleData() {
       buildResultsTable(jsonResponse);
     }
   }
-  busy("start");
+  // busy("start");
   http.send(null);
 }
 
@@ -966,7 +974,7 @@ function buildResultsTable(response) {
 
 //  desc: Cancels the CAS request if the request is taking longer than the user would like
 function cancelRequest() {
-  busy("stop");
+  // busy("stop");
   http.abort();
   http.onreadystatechange = null;
 
