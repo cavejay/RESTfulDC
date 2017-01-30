@@ -79,18 +79,6 @@ window.onload = function () {
   }
 }
 
-//  desc: Toggles the help div on and off.
-//        Returns the URI to the original version after clicking a help option
-function help() {
-  if (document.getElementById("helpDiv").style.display == "block") {
-    document.getElementById("helpDiv").style.display = "none";
-    window.history.pushState("", "", path);
-  }
-  else {
-    document.getElementById("helpDiv").style.display = "block";
-  }
-}
-
 //  desc: Parses the URL for the path of the RESTful and the CAS host name
 function getServerNameAndPath() {
   var tmp = window.location.href, splits = [];

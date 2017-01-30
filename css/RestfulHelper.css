@@ -58,7 +58,7 @@ div.data-with-buttons > h5
 div.data-with-buttons > button 
 {
   float: right;
-  margin-top: 0.82rem;
+  margin-top: 0.42rem;
   margin-left: 5px;
 }
 
@@ -85,4 +85,20 @@ li > .row > .col
 #subheader-bar
 {
     margin-bottom: 0;
+}
+
+#subheader-bar > div, #subheader-bar > a
+{
+    padding-left: 10px; 
+    line-height: 40px; 
+    height: 100%
+}
+
+#subheader-bar > a
+{
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .5px;
+    text-decoration: none;
+    color: #fff;
 }

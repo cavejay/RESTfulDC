@@ -27,16 +27,23 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
             </div>
         </nav>
         <div class="row white-text" id="subheader-bar" style="height: 40px">
-            <div style="padding-left: 10px; line-height: 35px; height: 100%; display: flex" class="grey darken-3 col s12 l6"> Server: 
+            <a class='grey dropdown-button waves-effect waves-light col s2 m2 l1' data-beloworigin="true" href='#' data-constrainWidth='false' data-activates='Menu-Dropdown'>Menu</a>
+             <ul id='Menu-Dropdown' class='dropdown-content'>
+                <li><a href="#!" class="light-blue-text text-darken-2" onClick="reset();">Reset Helper</a></li>
+                <li class="divider"></li>                
+                <li><a href="#helpModal" class="light-blue-text text-darken-2">Help</a></li>
+                <li class="divider"></li>
+                <li><a href="#!" class="light-blue-text text-darken-2">Github</a></li>
+            </ul>
+            <div style="display: flex" class="grey darken-3 col s10 m10 l5"> Server: 
                 <div class="input-field inline" style="margin-top: 0px; padding-top: 0px; width: 100%">
                     <input style="margin-bottom: 4px; padding: 2px; height: 30px;" id="serverName" type="text">
                 </div>
             </div>
-            <div style="padding-left: 10px; line-height: 35px; height: 100%" class="grey darken-2 col s12 l6"> Query: 
+            <div class="grey darken-2 col s12 l6"> Query: 
                     <span id="currentQuery" />
             </div>
         </div>
-    <div style="" class="">
         <div class="row">
             <div class="col s12 m6 l4">
                 <div class="section">
@@ -171,14 +178,54 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 </div>
             </div>
         </div>
-    </div>
+        <!--<div id="busy">
+            <div id="busyContent">
+                <div class="header" style="padding: 10px;">
+                <h1>Querying the CAS...</h1>
+                </div>
+                <center><img src="/img/ajax-loader.gif"><br><br><button onclick="cancelRequest()">Cancel the request</button></center>
+            </div>
+        </div>-->
+        <div id="helpModal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+        <!--<div id="helpDiv">
+            <h1>DC RUM RESTful Help</h1>
+            <div id="helpContent">
+                <div id="tableOfContents">
+                    <h2>Table of contents:</h2>
+                    </div>
+                    <h3><a>Why do I always have to log back in after a refresh?</a></h3>
+                    Something about pulling possible parameters from the CAS using the /rest/dmiquery URI forces the user to log back into the
+                    CAS upon leaving the RESTful page.
+                    <h3><a>Empty return set</a></h3>
+                    There are some Application / Dimensions / Metrics combinations that, although appear from the RESTful helper, may not actually
+                    provide any data. This could be because there's no data in the CAS for that combination.
+                    <h3><a>Can not connect to CAS</a></h3>
+                    If you have a problem connecting to the CAS, verify the CAS server name is correct in the top-right server name box.
+                    <br><br> *Note* Due to XSS issues, you should only use this tool on the CAS you are querying data from. The server
+                    name field is only to verify the server name was parsed correctly from the URI.
+                    <h3><a>No dimension or metric filters</a></h3>
+                    Make sure to select both a Dimension and a Metric before selecting a filter or sort option.<br>
+                    <h3><a>RESTful Helper does not appear correctly</a></h3>
+                    The RESTful Helper is optimized for Chrome on a 1080p display. If your resolution is lower, zoom out and the page should
+                    fit better.<br>
+                </div>
+            </div>
+        </div>-->
 </main>
 
 <footer class="page-footer grey darken-2"> 
     <!--the footer isn't fixed to the bottom again -.- -->
     <div class="footer-copyright">
         <div class="container">
-            <p>v0.1.0 © 2017<img src="imgs/dynatrace_small_logo.svg" class="right img" style="width: 100px; margin: auto; "/></p>
+            <p>v0.1.1 © 2017<img src="imgs/dynatrace_small_logo.svg" class="right img" style="width: 100px; margin: auto; "/></p>
             <!-- todo put a github link here-->
         </div>
     </div>
