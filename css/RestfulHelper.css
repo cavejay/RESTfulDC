@@ -61,3 +61,28 @@ div.data-with-buttons > button
   margin-top: 0.82rem;
   margin-left: 5px;
 }
+
+#userOutput
+{
+    overflow-y: scroll;
+    max-height: 40vh;
+}
+
+.footer-copyright > .container 
+{
+    line-height: 17.75px;
+}
+
+li > .row > .col
+{
+    padding: 0;
+}
+
+.pad-me {
+    padding-left: 0.75rem !important;
+}
+
+#subheader-bar
+{
+    margin-bottom: 0;
+}
