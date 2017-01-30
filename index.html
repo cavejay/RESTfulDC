@@ -86,96 +86,93 @@ wanted to revamp it so that it fits the aesthetic of modern web design.
                 </div>
             </div>
             <div class="col s12 m6 l4">
-                <div class="row">
-                    <div class="section  ">
-                        <h4>Filters and Options</h4>
-                        <ul>
-                            <li>
-                                <div class="data-with-buttons">
-                                    <h5>Dimension Filters</h5>
-                                    <button class="btn light-blue" id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
-                                    <button class="btn light-blue" id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
+                <div class="section  ">
+                    <h4>Filters and Options</h4>
+                    <ul>
+                        <li>
+                            <div class="data-with-buttons">
+                                <h5>Dimension Filters</h5>
+                                <button class="btn light-blue" id="remDimButton" onclick="removeDimensionFilterLine();" class="removeButton">-</button>
+                                <button class="btn light-blue" id="addDimButton" onclick="addDimensionFilterLine();" class="addButton">+</button>
+                            </div>
+                            <div class="row" id="dimFiltersDiv"/>
+                        </li>
+                        <li>
+                            <div class="data-with-buttons">
+                                <h5>Metric Filters</h5>
+                                <button class="btn light-blue" id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
+                                <button class="btn light-blue" id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
+                            </div>
+                            <div class="row" id="metricFiltersDiv"/>
+                        </li>
+                        <li>
+                            <h5>Sort</h5>
+                            <div class="row"> 
+                                <div class="col s8">
+                                    <select id="sortParam">
+                                        <option value="">Select a parameter to sort by</option>
+                                    </select>
                                 </div>
-                                <div class="row" id="dimFiltersDiv"/>
-                            </li>
-                            <li>
-                                <div class="data-with-buttons">
-                                    <h5>Metric Filters</h5>
-                                    <button class="btn light-blue" id="remDimButton" onclick="removeMetricFilterLine();" class="removeButton">-</button>
-                                    <button class="btn light-blue" id="addDimButton" onclick="addMetricFilterLine();" class="addButton">+</button>
+                                <div class="col s4"> 
+                                    <select id="sortDir">
+                                        <option value="">Select a sort type</option>
+                                        <option value="ASC">Ascending</option>
+                                        <option value="DESC">Descending</option>
+                                    </select>
                                 </div>
-                                <div class="row" id="metricFiltersDiv"/>
-                            </li>
-                            <li>
-                                <h5>Sort</h5>
-                                <div class="row"> 
-                                    <div class="col s8">
-                                        <select id="sortParam">
-                                            <option value="">Select a parameter to sort by</option>
-                                        </select>
-                                    </div>
-                                    <div class="col s4"> 
-                                        <select id="sortDir">
-                                            <option value="">Select a sort type</option>
-                                            <option value="ASC">Ascending</option>
-                                            <option value="DESC">Descending</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="lineItem" style="display: none;">
-                                <h5>Top Filter</h5>
-                                <textarea id="topFilter"></textarea>
-                            </li>
-                            <li>
-                                <h5>Number of Periods</h5>
-                                <div class="input-field">
-                                    <input value="1" placeholder="Number of Periods" id="numberOfPeriods" type="number">
-                                </div>
-                            </li>
-                        </ul>  
-                    </div>
+                            </div>
+                        </li>
+                        <li class="lineItem" style="display: none;">
+                            <h5>Top Filter</h5>
+                            <textarea id="topFilter"></textarea>
+                        </li>
+                        <li>
+                            <h5>Number of Periods</h5>
+                            <div class="input-field">
+                                <input value="1" placeholder="Number of Periods" id="numberOfPeriods" type="number">
+                            </div>
+                        </li>
+                    </ul>  
                 </div>
-                <div class="row">
-                    <div class="section">
-                        <div class="sectionTitlewithButton">
-                            <h4>Console</h4>
-                            <a class="waves-effect waves-light btn light-blue" id='copyURLButton' onclick="copyURL();">Copy URL</a>
-                        </div>
-                        <div style="padding-top: 10px" id="userOutput"> </div>
+            </div>
+            <div class="col s12 m6 l4">
+                <div class="section">
+                    <div class="sectionTitlewithButton">
+                        <h4>JSON Script</h4>
+                        <a class="waves-effect waves-light btn light-blue" id='copyJSONButton' onclick="clipboard('JSONOutput',0);">Copy JSON</a>
+                    </div>
+                        <div id="JSONOutput" class="content"></div>
+                </div>
+            </div>
+            <div class="col s12 m6 l4">
+                <div class="section">
+                    <div class="sectionTitlewithButton">
+                        <h4>Sample Data</h4>
+                        <a class="waves-effect waves-light btn light-blue" onclick="enlargeSampleData();">Enlarge</a>
+                    </div>
+                        <div id="sampleDataOutput" class="content"></div>
+                        <div id="largeDataDiv" style="display: none">
+                        <h1>Sample Data</h1>
+                        <div class="closeButton" onclick="enlargeSampleData();">X</div>
+                        <div id="largeDataContent"></div>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6 l4">
-                <div class="row">
-                    <div class="section">
-                        <div class="sectionTitlewithButton">
-                            <h4>Sample Data</h4>
-                            <a class="waves-effect waves-light btn light-blue" onclick="enlargeSampleData();">Enlarge</a>
-                        </div>
-                         <div id="sampleDataOutput" class="content"></div>
-                         <div id="largeDataDiv" style="display: none">
-                            <h1>Sample Data</h1>
-                            <div class="closeButton" onclick="enlargeSampleData();">X</div>
-                            <div id="largeDataContent"></div>
-                        </div>
+                <div class="section">
+                    <div class="sectionTitlewithButton">
+                        <h4>Console</h4>
+                        <a class="waves-effect waves-light btn light-blue" id='copyURLButton' onclick="copyURL();">Copy URL</a>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="section">
-                        <div class="sectionTitlewithButton">
-                            <h4>JSON Script</h4>
-                            <a class="waves-effect waves-light btn light-blue" id='copyJSONButton' onclick="clipboard('JSONOutput',0);">Copy JSON</a>
-                        </div>
-                         <div id="JSONOutput" class="content"></div>
-                    </div>
+                    <div style="padding-top: 10px" id="userOutput"> </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
 
-<footer class="page-footer grey darken-2">
+<footer class="page-footer grey darken-2"> 
+    <!--the footer isn't fixed to the bottom again -.- -->
     <div class="footer-copyright">
         <div class="container">
             v0.1.0 © 2017
