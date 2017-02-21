@@ -102,3 +102,18 @@ li > .row > .col
     text-decoration: none;
     color: #fff;
 }
+
+
+div#LoadingBar {
+    margin: 0px;
+    display: none;
+    position: relative;
+    background-color: skyblue;
+    height: 5px;
+    left: 0px;
+    width: 100%;
+}
+
+div#LoadingBar > div {
+    background-color: #26a4e3;
+}

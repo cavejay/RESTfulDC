@@ -74,7 +74,7 @@ window.onload = function () {
     // setHelpAnchors(); //todo figure out what this does and fix it
     
     window.dispatchEvent(UIupdate);
-    
+
     loaded++;
   }
 }
@@ -331,11 +331,11 @@ function getPossibleParams(params, caller) {
 function busy(option) { // todo materialize this
   if (option == "start") {
     start = Date.now();
-    document.getElementById("busy").style.display = "block";
+    document.getElementById("LoadingBar").style.display = "block";
   }
   else {
     now = Date.now();
-    document.getElementById("busy").style.display = "none";
+    document.getElementById("LoadingBar").style.display = "none";
   }
   time = now - start;
 }
@@ -873,7 +873,7 @@ function getSampleData() {
 
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
-      // busy("stop");
+      busy("stop");
 
       var jsonResponse = JSON.parse(http.responseText);
 
@@ -888,7 +888,7 @@ function getSampleData() {
       buildResultsTable(jsonResponse);
     }
   }
-  // busy("start");
+  busy("start");
   http.send(null);
 }
 
@@ -962,7 +962,7 @@ function buildResultsTable(response) {
 
 //  desc: Cancels the CAS request if the request is taking longer than the user would like
 function cancelRequest() {
-  // busy("stop");
+  busy("stop");
   http.abort();
   http.onreadystatechange = null;
 
