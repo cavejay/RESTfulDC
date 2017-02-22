@@ -43,9 +43,12 @@
                     <input style="margin-bottom: 4px; padding: 2px; height: 30px;" id="serverName" type="text">
                 </div>
             </div>
-            <div class="grey darken-2 col s12 l6"> Query: 
+            <div class="grey darken-2 col s10 l5"> Query: 
                     <span id="currentQuery" />
             </div>
+            <a class="red darken-1 btn waves-effect waves-light col s2 m2 l1" style="box-shadow: inherit; border-radius: 0px;" id="cancelQuery" onClick="cancelRequest()">
+                Cancel
+            </a>
         </div>
         <div id="LoadingBar" class="progress">
             <div class="indeterminate"></div>

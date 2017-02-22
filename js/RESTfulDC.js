@@ -4,9 +4,10 @@
 *
 *   This code performs the logic for the DC RUM Restul Helper
 *
-*   For questions, please email brett.barrett@dynatrace.com
+*   For questions, please email brett.barrett@dynatrace.com (dead email)
+*   Minor style edits have been made by michael.ball@dynatrace.com
 *
-*   Version: 2.0.4
+*   Version: 2.0.5
 */
 
 /*
