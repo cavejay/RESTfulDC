@@ -106,12 +106,14 @@ li > .row > .col
 
 div#LoadingBar {
     margin: 0px;
+    margin-bottom: -5px;
     display: none;
     position: relative;
     background-color: skyblue;
     height: 5px;
     left: 0px;
     width: 100%;
+    z-index: 100000;
 }
 
 div#LoadingBar > div {
