@@ -119,7 +119,3 @@ div#LoadingBar {
 div#LoadingBar > div {
     background-color: #26a4e3;
 }
-
-#queryDisplay, #cancelQuery {
-    transition: .2s
-}

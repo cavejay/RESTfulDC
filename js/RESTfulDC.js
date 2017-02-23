@@ -334,20 +334,20 @@ function busy(option) { // todo materialize this
     start = Date.now();
     document.getElementById("LoadingBar").style.display = "block";
     queryDisplay = document.getElementById("queryDisplay");
-    queryDisplay.classList.remove('l6');
-    queryDisplay.classList.remove('s12');
-    queryDisplay.classList.add('s10');
     queryDisplay.classList.add('l5');
+    queryDisplay.classList.remove('l6');
+    queryDisplay.classList.add('s10');
+    queryDisplay.classList.remove('s12');
     document.getElementById("cancelQuery").style.display = "block";
   }
   else {
     now = Date.now();
     document.getElementById("LoadingBar").style.display = "none";
     queryDisplay = document.getElementById("queryDisplay");
-    queryDisplay.classList.remove('s10');
-    queryDisplay.classList.remove('l5');
     queryDisplay.classList.add('s12');
+    queryDisplay.classList.remove('s10');
     queryDisplay.classList.add('l6');
+    queryDisplay.classList.remove('l5');
     document.getElementById("cancelQuery").style.display = "none";
   }
   time = now - start;
