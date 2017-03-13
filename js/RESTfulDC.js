@@ -7,7 +7,7 @@
 *   For questions, please email brett.barrett@dynatrace.com (dead email)
 *   Minor style edits have been made by michael.ball@dynatrace.com
 *
-*   Version: 2.0.5
+*   Version: 2.0.6
 */
 
 /*
@@ -221,7 +221,7 @@ function addMetricFilterLine() {
   else {
     selector = document.getElementById("selectMetricFilter").cloneNode(true);
     selector.id += metricFiltersCount + "";
-    var t = document.createElement('div'); t.className = "col s6 pad-me"; t.appendChild(selector);
+    var t = document.createElement('div'); t.className = "col s6"; t.appendChild(selector);
     document.getElementById("metricFiltersDiv").appendChild(t);
 
     selector = document.getElementById("selectMetricFilterOperator").cloneNode(true);
