@@ -7,7 +7,7 @@
 *   For questions, please email brett.barrett@dynatrace.com (dead email)
 *   Minor style edits have been made by michael.ball@dynatrace.com
 *
-*   Version: 2.0.6
+*   Version: 2.0.5
 */
 
 /*
@@ -221,7 +221,7 @@ function addMetricFilterLine() {
   else {
     selector = document.getElementById("selectMetricFilter").cloneNode(true);
     selector.id += metricFiltersCount + "";
-    var t = document.createElement('div'); t.className = "col s6"; t.appendChild(selector);
+    var t = document.createElement('div'); t.className = "col s6 pad-me"; t.appendChild(selector);
     document.getElementById("metricFiltersDiv").appendChild(t);
 
     selector = document.getElementById("selectMetricFilterOperator").cloneNode(true);
@@ -894,6 +894,7 @@ function getSampleData() {
         userOutput = "<br><font color='red'>The CAS returned an empty data set</font>. ";
         userOutput += "Please verify your dimensions and metrics are valid and make sense. ";
         userOutput += "If those are valid, check your filters.<br>";
+        Materialize.toast('Query returned an empty dataset', 4000, 'empty-dataset-toast');
       } else {
         userOutput = "<font color='green'>Fetched data in " + time + " ms.</font><br>";
       }
@@ -1238,7 +1239,7 @@ function buildJSON() {
   text += '"timePeriod": "' + postParams['timePeriod'] + '",';
   text += '"numberOfPeriods": ' + postParams['numberOfPeriods'] + '}';
 
-  document.getElementById("JSONOutput").innerHTML = text;
+  document.getElementById("JSONOutput").innerHTML = JSON.stringify(JSON.parse(text), undefined, 2);
 }
 
 //  desc: Copies text
