@@ -708,16 +708,16 @@ function processResults(results,caller){
   }
   else if(caller == "metric"){
     for(var i=0; i<results.length; i=i+2){
-      dictionary[results[i+1]]=results[i];
-      selectList.push(results[i+1]);
+      dictionary[results[i+1]+" ["+results[i]+"]"]=results[i];
+      selectList.push(results[i+1]+" ["+results[i]+"]");
     }
   }
   else {
     for(var i=0; i<results.length-1; i=i+2){
       if(results[i]=="" || results[i].charAt(0)==" "){
       } else {
-        dictionary[results[i+1]]=results[i];
-        selectList.push(results[i+1]);
+        dictionary[results[i+1]+" ["+results[i]+"]"]=results[i];
+        selectList.push(results[i+1]+" ["+results[i]+"]");
       }
     }
   }

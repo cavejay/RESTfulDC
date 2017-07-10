@@ -35,7 +35,7 @@
           </div>
           <button id="sampleDataButton" onClick="testSelectedValues()">Get data</button>
         </div>
-        <div class="content" id="getParametersBody">
+        <div class="content" id="getParametersBody" style="height: 85%; overflow-y: scroll;">
           <div id="applications" class="lineItem">
             <h3>Data Sources</h3>
             <select id="datasource" onchange="updateQueriedParameters('datasource');"></select>
@@ -79,7 +79,7 @@
         <div class="header">
           <h2>Filters and Options</h2>
         </div>
-        <div id="restQueryParametersContent" class="content">
+        <div id="restQueryParametersContent" class="content" style="height: 50%; overflow-y: scroll">
 
           <div id="dimFiltersDiv" class="lineItem">
             <h3>Dimension Filters
@@ -121,7 +121,7 @@
             <h2>Console</h2>
             <button id='copyURLButton' onclick="copyURL();">Copy URL</button>
           </div>
-          <div id="userOutput"></div>
+          <div id="userOutput" style="height: 35%; overflow-y: scroll"></div>
         </div>
       </div>
 
