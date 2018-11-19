@@ -621,7 +621,7 @@ function getEnteredParams() {
   if (sortDir == "") {
     sort = "[]";
   } else {
-    sort = "[['" + dictionary[sortParam] + "'," + sortDir + "]]";
+    sort = "[['" + dictionary[sortParam] + "','" + sortDir + "']]";
   }
 
   if (topFilter == "") topFilter = 1000;
