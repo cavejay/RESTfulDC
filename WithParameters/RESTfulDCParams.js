@@ -307,6 +307,7 @@ function updateQueriedParameters(caller){
 function getPossibleParams(params,caller){
   params = typeof params !== 'undefined' ? params : "";
   var url = connection+serverName+"/rest/dmiquery/"+params;
+  url = encodeURI(url);
 
   document.getElementById("currQuery").innerHTML = url;
 
@@ -862,6 +863,7 @@ function getSampleData(){
   http = new XMLHttpRequest();
 
   var url = connection+serverName+"/rest/dmiquery/getDMIData3?"+param;
+  url = encodeURI(url);
 
   userOutput = url+"<br>"; output();
   userOutput = "Fetching data from the CAS."; output();
